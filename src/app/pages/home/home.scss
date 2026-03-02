@@ -1,0 +1,16 @@
+main
+{
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    background: whitesmoke;
+
+}
+
+section
+{
+    background: white;
+    padding:  2rem;
+    border-radius: 14px;
+    box-shadow: 0px 10px 25 px rgba(0,0,0,.08);
+}
