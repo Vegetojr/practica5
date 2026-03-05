@@ -1,8 +1,29 @@
-<ul>
-    <li>
-<a routerLink="home">Home</a>
-</li>
-<li>
-<a routerLink="alumnos">Alumnos</a>
-</li>
-</ul>
+<mat-nav-list>
+    <a routerLink="home" routerLinkActive routerLinkActive #rla="routerLinkActive">
+    <mat-list-item  [activated]="rla.isActive">
+    <mat-icon matListItemIcon> home_rounded </mat-icon>
+    Home
+    </mat-list-item>
+    </a>
+    
+    <a routerLink="alumnos" routerLinkActive routerLinkActive #rlaAlumnos="routerLinkActive"> 
+    <mat-list-item [activated]="rlaAlumnos.isActive">
+    <mat-icon matListItemIcon> account_circle_rounded </mat-icon>
+    Alumnos
+    </mat-list-item>
+    </a>
+
+    <a routerLink="d" routerLinkActive routerLinkActive #rlaMaestros="routerLinkActive"> 
+    <mat-list-item  [activated]="rlaMaestros.isActive"  >
+    <mat-icon matListItemIcon> account_box_rounded </mat-icon>
+    Maestros
+    </mat-list-item>
+    </a>
+    
+    <a routerLink="x" routerLinkActive  #rlaCalificaciones="routerLinkActive" >  
+    <mat-list-item [activated]="rlaCalificaciones.isActive">
+    <mat-icon matListItemIcon> description_rounded </mat-icon>
+    Calificaciones
+    </mat-list-item>
+    </a>
+</mat-nav-list>
