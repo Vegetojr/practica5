@@ -23,6 +23,14 @@ export class Login
     }
   )
 
+  showPassword = false;
+
+  failedLogin = signal(false);
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit()
   { 
     if (this.form.invalid)
@@ -38,7 +46,9 @@ export class Login
       if (valido)
       { 
         this.router.navigateByUrl('/home')
+        this.failedLogin.set(false);
         return
       }
+      this.failedLogin.set(true);
   } 
 }

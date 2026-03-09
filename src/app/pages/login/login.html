@@ -29,6 +29,14 @@
             formControlName="email"
           />
         </div>
+<<<<<<< HEAD
+        @if(form.dirty && form.get('email')?.errors?.['required']) {
+          <p style="color: red; margin: 0;">El Correo es Obligatorio</p>
+        }
+        @else if (form.dirty && form.get('email')?.errors?.['email']) {
+          <p style="color: red; margin: 0;">Email no cumple con formato</p>
+        }
+=======
         @if (form.get('email')?.errors?.['requiered'] && this.form.dirty) 
           {
             <br><span style=" color: red;">(El Email tiene que ser rellenado)</span>
@@ -37,6 +45,7 @@
           {
             <br><span style=" color: red;">(El Email tiene que ser valido)</span>
           }
+>>>>>>> origin
       </div>
 
       <div class="field-group">
@@ -50,7 +59,7 @@
           </span>
           <input
             id="password"
-            type="password"
+            [type]="showPassword ? 'text' : 'password'"
             placeholder="********"
             autocomplete="current-password"
             formControlName="pass"
@@ -59,6 +68,7 @@
             type="button"
             class="toggle-password"
             aria-label="Mostrar u ocultar contrasena"
+            (click)="togglePassword()"
           >
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="1.8"/>
@@ -66,6 +76,14 @@
             </svg>
           </button>
         </div>
+<<<<<<< HEAD
+        @if(form.dirty && form.get('pass')?.errors?.['required']) {
+          <p style="color: red; margin: 0;">La contrasena no puede ser vacia</p>
+        }
+        @else if (form.dirty && form.get('pass')?.errors?.['minlength']) {
+          <p style="color: red; margin: 0;">La contrasena deber ser de almenos 6 caracteres</p>
+        }
+=======
       @if (form.get('pass')?.errors?.['requiered'] && this.form.dirty) 
           {
             <br><span style=" color: red;">(El Email tiene que ser rellenado)</span>
@@ -74,6 +92,7 @@
           {
             <br><span style=" color: red;">(La contrasena tiene que tener 6 caracteres)</span>
           }
+>>>>>>> origin
       </div>
 
       <div class="options-row">
@@ -83,8 +102,11 @@
         </label>
         <a href="#" class="muted-link">Olvidaste tu contrasena?</a>
       </div>
--
-      <button class="submit-btn" type="submit">Iniciar sesion</button>
+      @if(failedLogin()){
+        <p style="color: red; margin: 0;">Correo o Contrasena Fueron Invalidos</p>
+
+      }
+      <button class="submit-btn" type="submit" [disabled]="form.invalid">Iniciar sesion</button>
 
       <div class="divider"><span>O continua con</span></div>
 
