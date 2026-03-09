@@ -11,6 +11,7 @@
     <p class="subtitle">Ingresa tus credenciales para continuar</p>
 
     <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 style="color: red;">{{datos()}}</h2>
       <div class="field-group">
         <label for="email">Correo electronico</label>
         <div class="input-wrapper">
@@ -28,12 +29,23 @@
             formControlName="email"
           />
         </div>
+<<<<<<< HEAD
         @if(form.dirty && form.get('email')?.errors?.['required']) {
           <p style="color: red; margin: 0;">El Correo es Obligatorio</p>
         }
         @else if (form.dirty && form.get('email')?.errors?.['email']) {
           <p style="color: red; margin: 0;">Email no cumple con formato</p>
         }
+=======
+        @if (form.get('email')?.errors?.['requiered'] && this.form.dirty) 
+          {
+            <br><span style=" color: red;">(El Email tiene que ser rellenado)</span>
+          }
+        @if (form.get('email')?.errors?.['email'] && this.form.dirty) 
+          {
+            <br><span style=" color: red;">(El Email tiene que ser valido)</span>
+          }
+>>>>>>> origin
       </div>
 
       <div class="field-group">
@@ -64,12 +76,23 @@
             </svg>
           </button>
         </div>
+<<<<<<< HEAD
         @if(form.dirty && form.get('pass')?.errors?.['required']) {
           <p style="color: red; margin: 0;">La contrasena no puede ser vacia</p>
         }
         @else if (form.dirty && form.get('pass')?.errors?.['minlength']) {
           <p style="color: red; margin: 0;">La contrasena deber ser de almenos 6 caracteres</p>
         }
+=======
+      @if (form.get('pass')?.errors?.['requiered'] && this.form.dirty) 
+          {
+            <br><span style=" color: red;">(El Email tiene que ser rellenado)</span>
+          }
+        @if (form.get('pass')?.errors?.['minlength'] && this.form.dirty) 
+          {
+            <br><span style=" color: red;">(La contrasena tiene que tener 6 caracteres)</span>
+          }
+>>>>>>> origin
       </div>
 
       <div class="options-row">
@@ -98,7 +121,7 @@
         </button>
       </div>
     </form>
-
+    
     <p class="register-row">
       No tienes una cuenta?
       <a href="#">Registrate aqui</a>

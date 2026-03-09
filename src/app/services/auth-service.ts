@@ -4,8 +4,8 @@ import { computed, Injectable, signal } from '@angular/core';
 export interface Session
 {
   id:number,
-  name:String,
-  email:String
+  name:string,
+  email:string
 }
 
 
@@ -18,7 +18,9 @@ export class AuthService
   mockUser:any[]=
   [
     {id:1,name:'Papu',email:'papu@sldg.com',pass:'lol123'},
-    {id:2,name:'eteSetch',email:'elpepe@sldg.com',pass:'lol123'}
+    {id:2,name:'eteSetch',email:'elpepe@sldg.com',pass:'lol123'},
+    { id:3, name: 'Jose',email:'admin@demo.com',pass:'123456'},
+    { id:4, name: 'Paola',email:'user@demo.com',pass:'abcdef'}
   ]
   private readonly _currentUser=signal<Session|null>(this.readFromStorage());
   readonly currentUser= computed(()=> this._currentUser())
