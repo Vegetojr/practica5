@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class Login 
 {
+  datos=signal<string>('')
   private fb = inject(FormBuilder)
   private auth=inject(AuthService)
   private router=inject(Router)
@@ -26,6 +27,7 @@ export class Login
   { 
     if (this.form.invalid)
       {
+        this.datos.set('Existen datos invalidos en el logeo')
         this.form.markAllAsDirty()
         return
       }

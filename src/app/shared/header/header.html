@@ -1,5 +1,23 @@
+<div class="header-container">
+  <p>Sistema</p>
 
-
-<div class="avatar">
-    <h2>{{username.currentUser()?.name}}</h2>
+  <div class="avatar buttonButton">
+    
+    
+    <button class="buttonButton" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <h2 class="buttonButton">{{ username.currentUser()?.name | slice:0:2 }}</h2>
+    </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item disabled="">
+        <mat-icon>dialpad</mat-icon>
+        <span>user</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+    </button>
+    </mat-menu>
+    
+  </div>
+  
 </div>

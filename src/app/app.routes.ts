@@ -25,6 +25,16 @@ export const routes:Routes=
                 path: 'alumnos',
                 canActivate:[authGuard],
                 loadComponent:()=> import('./pages/alumnos/alumnos').then((m)=>m.Alumnos)
+            },
+            {
+                path: 'maestros',
+                canActivate:[authGuard],
+                loadComponent:()=> import('./pages/maestro/maestro').then((m)=>m.Maestro)
+            },
+            {
+                path: 'calificaciones',
+                canActivate:[authGuard],
+                loadComponent:()=> import('./pages/calificaciones/calificaciones').then((m)=>m.Calificaciones)
             }
         ]
     },    
