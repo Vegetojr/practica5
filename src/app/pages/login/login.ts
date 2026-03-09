@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
@@ -22,6 +22,14 @@ export class Login
     }
   )
 
+  showPassword = false;
+
+  failedLogin = signal(false);
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit()
   { 
     if (this.form.invalid)
@@ -36,7 +44,9 @@ export class Login
       if (valido)
       { 
         this.router.navigateByUrl('/home')
+        this.failedLogin.set(false);
         return
       }
+      this.failedLogin.set(true);
   } 
 }
